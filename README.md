@@ -1,135 +1,200 @@
-# Turborepo starter
+# 🍽️ Mealzo
 
-This Turborepo starter is maintained by the Turborepo core team.
+Mealzo is a scalable, full-stack food delivery and commerce platform inspired by modern multi-vendor ecosystems.  
+It is designed to support restaurants, customers, riders, and administrators within a unified, modular architecture.
 
-## Using this example
+This project is not a clone of any existing platform. It is an independently engineered system inspired by platforms like Foodpanda.
 
-Run the following command:
+---
 
-```sh
-npx create-turbo@latest
-```
+# 🚀 Vision
 
-## What's inside?
+Mealzo aims to become a production-grade food marketplace system with:
 
-This Turborepo includes the following packages/apps:
+- Multi-vendor restaurant onboarding
+- Real-time order lifecycle management
+- Wallet & internal transaction system
+- Settlement & withdrawal engine
+- Role-based access control
+- Scalable backend architecture
+- SaaS-ready foundation
 
-### Apps and Packages
+---
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
-
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
+# 📦 Monorepo Structure
 
 ```
-cd my-turborepo
-
-# With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build
-
-# Without [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build
-yarn dlx turbo build
-pnpm exec turbo build
+.
+├── apps/
+│   ├── backend/          # Express + TypeScript API (Core business logic)
+│   ├── web/              # Customer-facing frontend (future)
+│   ├── admin/            # Admin dashboard (future)
+│
+├── packages/
+│   ├── types/            # Shared TypeScript types
+│   ├── config/           # Shared configurations
+│   └── utils/            # Shared utilities
+│
+├── bun.lockb
+├── package.json
+└── README.md
 ```
 
-You can build a specific package by using a [filter](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters):
+---
+
+# 🏗 System Architecture
+
+Mealzo follows a **modular domain-driven backend architecture**.
+
+Core backend modules include:
+
+- Auth
+- Users
+- Restaurants
+- Menu
+- Cart
+- Orders
+- Payments
+- Wallet
+- Settlement
+- Withdrawal
+- Admin
+
+Each module is isolated and scalable.
+
+---
+
+# 🛠 Tech Stack
+
+## Runtime
+- Bun
+
+## Backend
+- Express.js
+- TypeScript
+- PostgreSQL
+- Redis
+- JWT Authentication
+- BullMQ (background jobs)
+- Modular architecture
+
+## Planned Extensions
+- Real-time tracking (WebSocket)
+- Payment gateway integration
+- Analytics engine
+- Microservice extraction (future scaling)
+
+---
+
+# ⚡ Key Features (Planned & In Progress)
+
+### 👤 Customer
+- Browse restaurants
+- Add to cart
+- Place orders
+- Track order
+- Wallet payments
+
+### 🏪 Restaurant
+- Manage menu
+- Accept/reject orders
+- Track earnings
+- Request withdrawals
+
+### 🚴 Rider
+- Accept delivery tasks
+- Order status updates
+- Earnings tracking
+
+### 🛠 Admin
+- Full platform control
+- Settlement management
+- Withdrawal approval
+- Fraud monitoring
+
+---
+
+# 🧠 Architectural Principles
+
+- Clean separation of concerns
+- Business-domain modularity
+- Transaction-safe wallet logic
+- Queue-based async processing
+- Production-grade scalability
+- SaaS monetization-ready
+
+---
+
+# 📥 Installation
+
+Clone repository:
+
+```bash
+git clone <repository-url>
+cd mealzo
+```
+
+Install dependencies:
+
+```bash
+bun install
+```
+
+---
+
+# ▶️ Run Backend
+
+```bash
+cd apps/backend
+bun run dev
+```
+
+---
+
+# 🔐 Environment Configuration
+
+Each app maintains its own `.env`.
+
+Example:
 
 ```
-# With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build --filter=docs
-
-# Without [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build --filter=docs
-yarn exec turbo build --filter=docs
-pnpm exec turbo build --filter=docs
+apps/backend/.env
 ```
 
-### Develop
+Never commit environment files.  
+Use `.env.example` as reference.
 
-To develop all apps and packages, run the following command:
+---
 
-```
-cd my-turborepo
+# 🚀 Production Build
 
-# With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev
+Backend:
 
-# Without [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev
-yarn exec turbo dev
-pnpm exec turbo dev
+```bash
+bun build
+bun start
 ```
 
-You can develop a specific package by using a [filter](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters):
+---
 
-```
-# With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev --filter=web
+# 📈 Future Roadmap
 
-# Without [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev --filter=web
-yarn exec turbo dev --filter=web
-pnpm exec turbo dev --filter=web
-```
+- Dockerized deployment
+- CI/CD pipeline
+- Cloud-native infrastructure
+- Horizontal scaling
+- Real-time dispatch optimization
+- AI-based demand prediction
 
-### Remote Caching
+---
 
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
+# 📄 License
 
-Turborepo can use a technique known as [Remote Caching](https://turborepo.dev/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
+Private & Proprietary  
+© Nazmul Huda. All rights reserved.
 
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
+---
 
-```
-cd my-turborepo
+# 👨‍💻 Maintained By
 
-# With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended)
-turbo login
-
-# Without [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation), use your package manager
-npx turbo login
-yarn exec turbo login
-pnpm exec turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
-# With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended)
-turbo link
-
-# Without [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation), use your package manager
-npx turbo link
-yarn exec turbo link
-pnpm exec turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turborepo.dev/docs/crafting-your-repository/running-tasks)
-- [Caching](https://turborepo.dev/docs/crafting-your-repository/caching)
-- [Remote Caching](https://turborepo.dev/docs/core-concepts/remote-caching)
-- [Filtering](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters)
-- [Configuration Options](https://turborepo.dev/docs/reference/configuration)
-- [CLI Usage](https://turborepo.dev/docs/reference/command-line-reference)
+Nazmul Huda
