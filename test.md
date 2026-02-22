@@ -1,0 +1,25 @@
+backend/
+  src/
+    config/
+    core/
+      database/
+      redis/
+      queue/
+    shared/
+      middlewares/
+      utils/
+      interfaces/
+    modules/
+      auth/
+      users/
+      restaurants/
+      menu/
+      cart/
+      orders/
+      payments/
+      wallet/
+      settlement/
+      withdrawal/
+      admin/
+    app.ts
+    server.ts
